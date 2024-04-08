@@ -40,7 +40,7 @@ Our project utilizes computer graphics to design hearing aids for infants and yo
 - Upon successful reattachment, a confirmation message is displayed.
 
 ### GitHub Repo
-- [Add link to the repository]
+- [https://github.com/Rafael-Leitao/CSC630-Socially-Responsible-Computing]
 
 ### Work Cited
 - [Add references and citations]
