@@ -1,0 +1,13 @@
+﻿  main.cpp
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(63,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(66,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(131,60): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(131,54): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(131,48): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(137,60): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(137,54): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(137,48): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(143,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(143,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(143,48): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  HearingAid.vcxproj -> C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\x64\Debug\HearingAid.exe
