@@ -29,7 +29,12 @@ public:
 	std::shared_ptr<Program> prog;
 
 	// Shape to be used (from obj file)
-	shared_ptr<Shape> shape;
+	shared_ptr<Shape> base;
+	shared_ptr<Shape> dial;
+	shared_ptr<Shape> midButton;
+	shared_ptr<Shape> botButton;
+	shared_ptr<Shape> stem;
+	shared_ptr<Shape> baseToStem;
 
 	// Contains vertex information for OpenGL
 	GLuint VertexArrayID;
@@ -115,12 +120,42 @@ public:
 	void initGeom(const std::string& objectDirectory)
 	{
 		// Initialize mesh.
-		shape = make_shared<Shape>();
+		dial = make_shared<Shape>();
+		base = make_shared<Shape>();
+		midButton = make_shared<Shape>();
+		botButton = make_shared<Shape>();
+		stem = make_shared<Shape>();
+		//shape = make_shared<Shape>();
+		baseToStem = make_shared<Shape>();
 		//shape->loadMesh(resourceDirectory + "/SmoothSphere.obj");
 		//shape->loadMesh(resourceDirectory + "/sphere.obj");
-		shape->loadMesh(objectDirectory + "/hearingAid.obj");
-		shape->resize();
-		shape->init();
+		dial->loadMesh(objectDirectory + "/hearingAid/dial.obj");
+		dial->resize();
+		dial->init();
+
+		base->loadMesh(objectDirectory + "/hearingAid/base.obj");
+		base->resize();
+		base->init();
+
+
+		midButton->loadMesh(objectDirectory + "/hearingAid/midButton.obj");
+		midButton->resize();
+		midButton->init();
+
+
+		botButton->loadMesh(objectDirectory + "/hearingAid/bottomButton.obj");
+		botButton->resize();
+		botButton->init();
+
+
+		stem->loadMesh(objectDirectory + "/hearingAid/stemInsert.obj");
+		stem->resize();
+		stem->init();
+
+
+		baseToStem->loadMesh(objectDirectory + "/hearingAid/baseConnectStem.obj");
+		baseToStem->resize();
+		baseToStem->init();
 	}
 
 		void SetMaterial(int i) {
@@ -179,16 +214,29 @@ public:
 		glUniformMatrix4fv(prog->getUniform("V"), 1, GL_FALSE, value_ptr(View->topMatrix()));
 		glUniform3f(prog->getUniform("lightP"), lightTrans+2, 3, 5);
 
-		// draw the current hearing aid
+		// draw the spheres
 		Model->pushMatrix();
-		Model->translate(vec3(.6, -.3, -1 + gTrans));
+
+		//global rotate (the whole scene )
+		Model->rotate(gRot, vec3(0, 1, 0));
+
+		// draw hearing aid Base
+		Model->pushMatrix();
+		Model->translate(vec3(.7, -.038, -5.2 + gTrans));
 		Model->scale(vec3(0.10, 0.10, 0.10));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-		shape->draw(prog);
+		base->draw(prog);
 		Model->popMatrix();
-
 		prog->unbind();
+
+		//draw hearing aid tube
+
+		//draw hearing aid ear insert
+
+
+		//later: draw buttons etc
+
 
 		// Pop matrix stacks.
 		Projection->popMatrix();
