@@ -33,6 +33,15 @@ void Shape::loadMesh(const string &meshName)
 	}
 }
 
+//void Shape::loadMultiMesh(tinyobj::shape_t& shape)
+//{
+//	// set buffers for this shape object
+//	posBuf = shape.mesh.positions;
+//	norBuf = shape.mesh.normals;
+//	texBuf = shape.mesh.texcoords;
+//	eleBuf = shape.mesh.indices;
+//}
+
 void Shape::resize()
 {
 	float minX, minY, minZ;

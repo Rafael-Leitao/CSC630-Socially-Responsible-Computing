@@ -16,6 +16,7 @@ class Shape
 public:
 
 	void loadMesh(const std::string &meshName);
+	//void loadMultiMesh(tinyobj::shape_t& shape);
 	void init();
 	void resize();
 	void draw(const std::shared_ptr<Program> prog) const;
