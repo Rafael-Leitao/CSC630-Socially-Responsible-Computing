@@ -37,7 +37,7 @@ public:
 	shared_ptr<Shape> botButton;
 	shared_ptr<Shape> stem;
 	shared_ptr<Shape> baseToStem;
-
+	shared_ptr<Shape> speaker;
 	//vector<shared_ptr<Shape>> hearingAid;
 
 	// Contains vertex information for OpenGL
@@ -135,7 +135,7 @@ public:
 		midButton = make_shared<Shape>();
 		botButton = make_shared<Shape>();
 		stem = make_shared<Shape>();
-		//shape = make_shared<Shape>();
+		speaker = make_shared<Shape>();
 		baseToStem = make_shared<Shape>();
 		//shape->loadMesh(resourceDirectory + "/SmoothSphere.obj");
 		//shape->loadMesh(resourceDirectory + "/sphere.obj");
@@ -167,6 +167,10 @@ public:
 		baseToStem->resize();
 		baseToStem->init();
 
+
+		speaker->loadMesh(objectDirectory + "/hearingAid/speaker.obj");
+		speaker->resize();
+		speaker->init();
 
 		//// init multi shape object
 		//vector<tinyobj::shape_t> TOshapes;
@@ -258,7 +262,7 @@ public:
 			baseToStem->draw(prog);
 			Model->popMatrix();
 
-			//stem
+			//stem and speaker dome
 			Model->pushMatrix(); 
 			Model->translate(vec3(basePosx + 1, basePosy+.14 , basePosz));
 			Model->scale(vec3(0.66, 0.7, 0.66));
@@ -266,6 +270,15 @@ public:
 			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 			stem->draw(prog);
 			Model->popMatrix(); 
+
+			//Speaker
+			Model->pushMatrix();
+			Model->translate(vec3(basePosx + 1.12, basePosy -.23, basePosz));
+			Model->scale(vec3(0.26, 0.3, 0.3));
+			SetMaterial(2);
+			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+			speaker->draw(prog);
+			Model->popMatrix();
 
 			//dial
 			Model->pushMatrix();
@@ -276,7 +289,7 @@ public:
 			dial->draw(prog);
 			Model->popMatrix();
 
-			//dial
+			//Middle button
 			Model->pushMatrix(); 
 			Model->translate(vec3(basePosx - .4, basePosy + .1, basePosz));
 			Model->scale(vec3(0.07, 0.07, 0.07));
