@@ -38,6 +38,7 @@ public:
 	shared_ptr<Shape> stem;
 	shared_ptr<Shape> baseToStem;
 	shared_ptr<Shape> speaker;
+	shared_ptr<Shape> ear;
 	//vector<shared_ptr<Shape>> hearingAid;
 
 	// Contains vertex information for OpenGL
@@ -137,6 +138,7 @@ public:
 		stem = make_shared<Shape>();
 		speaker = make_shared<Shape>();
 		baseToStem = make_shared<Shape>();
+		ear = make_shared<Shape>();
 		//shape->loadMesh(resourceDirectory + "/SmoothSphere.obj");
 		//shape->loadMesh(resourceDirectory + "/sphere.obj");
 		dial->loadMesh(objectDirectory + "/hearingAid/dial.obj");
@@ -171,6 +173,10 @@ public:
 		speaker->loadMesh(objectDirectory + "/hearingAid/speaker.obj");
 		speaker->resize();
 		speaker->init();
+
+		ear->loadMesh(objectDirectory + "/hearingAid/ear.obj");
+		ear->resize();
+		ear->init();
 
 		//// init multi shape object
 		//vector<tinyobj::shape_t> TOshapes;
@@ -216,6 +222,12 @@ public:
     			glUniform3f(prog->getUniform("MatSpec"), 0.9922, 0.941176, 0.80784);
     			glUniform1f(prog->getUniform("MatShine"), 27.9);*/
     		break;
+			case 3: //light green
+				glUniform3f(prog->getUniform("MatAmb"), 0.35, 0.5, 0.45);
+				/*glUniform3f(prog->getUniform("MatDif"), 0.7804, 0.5686, 0.11373);
+				glUniform3f(prog->getUniform("MatSpec"), 0.9922, 0.941176, 0.80784);
+				glUniform1f(prog->getUniform("MatShine"), 27.9);*/
+				break;
   		}
 	}
 		
@@ -305,6 +317,16 @@ public:
 			SetMaterial(2);
 			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 			botButton->draw(prog);
+			Model->popMatrix();
+
+			//Ear
+			Model->pushMatrix();
+			Model->translate(vec3(basePosx+.4, basePosy, basePosz-.3));
+			Model->scale(vec3(1, 1, 1));
+			Model->rotate(90, vec3(0,1,0));
+			SetMaterial(3);
+			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+			ear->draw(prog);
 			Model->popMatrix();
 			
 			
