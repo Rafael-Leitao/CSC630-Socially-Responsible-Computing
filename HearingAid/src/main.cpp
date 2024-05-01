@@ -10,6 +10,7 @@
 #include "Shape.h"
 #include "MatrixStack.h"
 #include "WindowManager.h"
+#include "Camera.h"
 
 #include <tiny_obj_loader/tiny_obj_loader.h>
 
@@ -57,6 +58,10 @@ public:
 	float deg90 = 1.5708;
 	float deg135 = 2.35619;
 
+	Camera myCamera;
+	bool firstMouse = true;
+	bool isRightMouseButtonPressed = false;
+
 	void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
 	{
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
@@ -75,28 +80,29 @@ public:
 		if (key == GLFW_KEY_P && action == GLFW_RELEASE) {
 			lightTrans++;
 		}
-		if (key == GLFW_KEY_A && action == GLFW_RELEASE) {
-			gRot+= 0.16;
+		if (key == GLFW_KEY_A && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			myCamera.moveLeft();
 		}
-		if (key == GLFW_KEY_D && action == GLFW_RELEASE) {
-			gRot-= 0.16;
+		if (key == GLFW_KEY_D && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			myCamera.moveRight();
 		}
-		if (key == GLFW_KEY_W && action == GLFW_RELEASE) {
-			gTrans--;
+		if (key == GLFW_KEY_W && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			myCamera.moveForward();
 		}
-		if (key == GLFW_KEY_S && action == GLFW_RELEASE) {
-			gTrans++;
+		if (key == GLFW_KEY_S && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			myCamera.moveBack();
 		}
 	}
 
-	void mouseCallback(GLFWwindow *window, int button, int action, int mods)
-	{
-		double posX, posY;
-
-		if (action == GLFW_PRESS)
-		{
-			 glfwGetCursorPos(window, &posX, &posY);
-			 cout << "Pos X " << posX <<  " Pos Y " << posY << endl;
+	void mouseCallback(GLFWwindow* window, int button, int action, int mods) {
+		// ... rest of your mouseCallback code
+		if (button == GLFW_MOUSE_BUTTON_LEFT) {
+			if (action == GLFW_PRESS) {
+				isRightMouseButtonPressed = true;
+			}
+			else if (action == GLFW_RELEASE) {
+				isRightMouseButtonPressed = false;
+			}
 		}
 	}
 
@@ -357,6 +363,10 @@ public:
 		// View is identity - for now
 		View->pushMatrix();
 
+		View->loadIdentity();
+
+		View->multMatrix(myCamera.getViewMatrix());
+
 		// Draw a stack of cubes with indiviudal transforms
 		prog->bind();
 		glUniformMatrix4fv(prog->getUniform("P"), 1, GL_FALSE, value_ptr(Projection->topMatrix()));
@@ -412,6 +422,12 @@ int main(int argc, char *argv[])
 	{
 		// Render scene.
 		application->render();
+
+		if (application->isRightMouseButtonPressed) {
+			double posX, posY;
+			glfwGetCursorPos(windowManager->getHandle(), &posX, &posY);
+			application->myCamera.lookAround(windowManager->getHandle(), posX, posY);
+		}
 
 		// Swap front and back buffers.
 		glfwSwapBuffers(windowManager->getHandle());
