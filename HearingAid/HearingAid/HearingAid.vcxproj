@@ -18,6 +18,29 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\headers\Camera.h" />
+    <ClInclude Include="..\headers\GLSL.h" />
+    <ClInclude Include="..\headers\MatrixStack.h" />
+    <ClInclude Include="..\headers\Program.h" />
+    <ClInclude Include="..\headers\Shape.h" />
+    <ClInclude Include="..\headers\WindowManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Camera.cpp" />
+    <ClCompile Include="..\src\glad.c" />
+    <ClCompile Include="..\src\GLSL.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\MatrixStack.cpp" />
+    <ClCompile Include="..\src\Program.cpp" />
+    <ClCompile Include="..\src\Shape.cpp" />
+    <ClCompile Include="..\src\tiny_obj_loader.cpp" />
+    <ClCompile Include="..\src\WindowManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resources\simple_frag.glsl" />
+    <None Include="..\resources\simple_vert.glsl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -71,8 +94,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\Libraries\include;C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\headers;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\headers;C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\Libraries\include;C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\Libraries\include;C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\headers;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\Libraries\lib;C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -131,27 +154,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\headers\GLSL.h" />
-    <ClInclude Include="..\headers\MatrixStack.h" />
-    <ClInclude Include="..\headers\Program.h" />
-    <ClInclude Include="..\headers\Shape.h" />
-    <ClInclude Include="..\headers\WindowManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\resources\simple_frag.glsl" />
-    <None Include="..\resources\simple_vert.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\glad.c" />
-    <ClCompile Include="..\src\GLSL.cpp" />
-    <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="..\src\MatrixStack.cpp" />
-    <ClCompile Include="..\src\Program.cpp" />
-    <ClCompile Include="..\src\Shape.cpp" />
-    <ClCompile Include="..\src\tiny_obj_loader.cpp" />
-    <ClCompile Include="..\src\WindowManager.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

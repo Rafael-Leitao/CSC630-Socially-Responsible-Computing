@@ -14,7 +14,7 @@
 
 #include <tiny_obj_loader/tiny_obj_loader.h>
 
-// value_ptr for glm
+ // value_ptr for glm
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -26,7 +26,7 @@ class Application : public EventCallbacks
 
 public:
 
-	WindowManager * windowManager = nullptr;
+	WindowManager* windowManager = nullptr;
 
 	// Our shader program
 	std::shared_ptr<Program> prog;
@@ -62,17 +62,17 @@ public:
 	bool firstMouse = true;
 	bool isRightMouseButtonPressed = false;
 
-	void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		{
 			glfwSetWindowShouldClose(window, GL_TRUE);
 		}
 		if (key == GLFW_KEY_Z && action == GLFW_PRESS) {
-			glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		}
 		if (key == GLFW_KEY_Z && action == GLFW_RELEASE) {
-			glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		}
 		if (key == GLFW_KEY_O && action == GLFW_RELEASE) {
 			lightTrans--;
@@ -106,7 +106,7 @@ public:
 		}
 	}
 
-	void resizeCallback(GLFWwindow *window, int width, int height)
+	void resizeCallback(GLFWwindow* window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
@@ -206,137 +206,143 @@ public:
 		//}
 	}
 
-		void SetMaterial(int i) {
+	void SetMaterial(int i) {
 
-    		prog->bind();
-    		switch (i) {
-    		case 0: //shiny blue plastic
-    			glUniform3f(prog->getUniform("MatAmb"), 0.02, 0.04, 0.2);
-    			/*glUniform3f(prog->getUniform("MatDif"), 0.0, 0.16, 0.9);
-    			glUniform3f(prog->getUniform("MatSpec"), 0.14, 0.2, 0.8);
-    			glUniform1f(prog->getUniform("MatShine"), 120.0);*/
-    		break;
-    		case 1: // flat grey
-    			glUniform3f(prog->getUniform("MatAmb"), 0.13, 0.13, 0.14);
-    			/*glUniform3f(prog->getUniform("MatDif"), 0.3, 0.3, 0.4);
-    			glUniform3f(prog->getUniform("MatSpec"), 0.3, 0.3, 0.4);
-    			glUniform1f(prog->getUniform("MatShine"), 4.0);*/
-    		break;
-    		case 2: //brass
-    			glUniform3f(prog->getUniform("MatAmb"), 0.3294, 0.2235, 0.02745);
-    			/*glUniform3f(prog->getUniform("MatDif"), 0.7804, 0.5686, 0.11373);
-    			glUniform3f(prog->getUniform("MatSpec"), 0.9922, 0.941176, 0.80784);
-    			glUniform1f(prog->getUniform("MatShine"), 27.9);*/
-    		break;
-			case 3: //light green
-				glUniform3f(prog->getUniform("MatAmb"), 0.35, 0.5, 0.45);
-				/*glUniform3f(prog->getUniform("MatDif"), 0.7804, 0.5686, 0.11373);
-				glUniform3f(prog->getUniform("MatSpec"), 0.9922, 0.941176, 0.80784);
-				glUniform1f(prog->getUniform("MatShine"), 27.9);*/
-				break;
-  		}
-	}
-		
-		//void drawHearingAid(shared_ptr<MatrixStack> Model)
-		//{
-		//	Model->pushMatrix();
-		//	Model->translate(vec3(-0.4, -1, 0));
-		//	Model->rotate(deg90, vec3(0, 0, 1));
-		//	Model->rotate(deg45, vec3(0, 1, 0));
-		//	Model->scale(7);
-		//	SetMaterial(1);
-		//	glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-		//	// draw each shape in hearing aid
-		//	for (int i = 0; i < hearingAid.size(); i++) {
-		//		hearingAid[i]->draw(prog);
-		//	}
-		//	Model->popMatrix();
-		//}
-		void drawHearingAid(shared_ptr<MatrixStack> Model)
-		{
-
-			//Note: I only made them different materials for easier visualization in the beginning
-
-			Model->pushMatrix();
-			//global rotate (the whole scene)
-			Model->rotate(gRot, vec3(0, 1, 0));
-			int basePosx = 0;
-			int basePosy = 0.5;
-			int basePosz = -9 + gTrans;
-			// draw base
-			Model->pushMatrix();
-			Model->translate(vec3(basePosx, basePosy, basePosz));
-			SetMaterial(1);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			base->draw(prog);
-			Model->popMatrix();
-
-			// draw basetoStem
-			Model->pushMatrix();
-			Model->translate(vec3(basePosx+.45, basePosy + .90, basePosz));
-			Model->scale(vec3(0.44, 0.44, 0.44));
-			SetMaterial(0);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			baseToStem->draw(prog);
-			Model->popMatrix();
-
-			//stem and speaker dome
-			Model->pushMatrix(); 
-			Model->translate(vec3(basePosx + 1, basePosy+.14 , basePosz));
-			Model->scale(vec3(0.66, 0.7, 0.66));
-			SetMaterial(2);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			stem->draw(prog);
-			Model->popMatrix(); 
-
-			//Speaker
-			Model->pushMatrix();
-			Model->translate(vec3(basePosx + 1.12, basePosy -.23, basePosz));
-			Model->scale(vec3(0.26, 0.3, 0.3));
-			SetMaterial(2);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			speaker->draw(prog);
-			Model->popMatrix();
-
-			//dial
-			Model->pushMatrix();
-			Model->translate(vec3(basePosx -.275, basePosy + .5, basePosz));
-			Model->scale(vec3(0.2, 0.2, 0.2));
-			SetMaterial(2);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			dial->draw(prog);
-			Model->popMatrix();
-
-			//Middle button
-			Model->pushMatrix(); 
-			Model->translate(vec3(basePosx - .4, basePosy + .1, basePosz));
-			Model->scale(vec3(0.07, 0.07, 0.07));
-			SetMaterial(2);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			midButton->draw(prog);
-			Model->popMatrix();
-
-			//bottom Button
-			Model->pushMatrix(); 
-			Model->translate(vec3(basePosx - .45, basePosy -.4, basePosz));
-			Model->scale(vec3(0.07, 0.07, 0.07));
-			SetMaterial(2);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			botButton->draw(prog);
-			Model->popMatrix();
-
-			//Ear
-			Model->pushMatrix();
-			Model->translate(vec3(basePosx+.4, basePosy, basePosz-.3));
-			Model->scale(vec3(1, 1, 1));
-			Model->rotate(90, vec3(0,1,0));
-			SetMaterial(3);
-			glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-			ear->draw(prog);
-			Model->popMatrix();
-			
-			
+		prog->bind();
+		switch (i) {
+		case 0: //shiny blue plastic
+			glUniform3f(prog->getUniform("MatAmb"), 0.02, 0.04, 0.2);
+			/*glUniform3f(prog->getUniform("MatDif"), 0.0, 0.16, 0.9);
+			glUniform3f(prog->getUniform("MatSpec"), 0.14, 0.2, 0.8);
+			glUniform1f(prog->getUniform("MatShine"), 120.0);*/
+			break;
+		case 1: // flat grey
+			glUniform3f(prog->getUniform("MatAmb"), 0.13, 0.13, 0.14);
+			/*glUniform3f(prog->getUniform("MatDif"), 0.3, 0.3, 0.4);
+			glUniform3f(prog->getUniform("MatSpec"), 0.3, 0.3, 0.4);
+			glUniform1f(prog->getUniform("MatShine"), 4.0);*/
+			break;
+		case 2: //brass
+			glUniform3f(prog->getUniform("MatAmb"), 0.3294, 0.2235, 0.02745);
+			/*glUniform3f(prog->getUniform("MatDif"), 0.7804, 0.5686, 0.11373);
+			glUniform3f(prog->getUniform("MatSpec"), 0.9922, 0.941176, 0.80784);
+			glUniform1f(prog->getUniform("MatShine"), 27.9);*/
+			break;
+		case 3: //light green
+			glUniform3f(prog->getUniform("MatAmb"), 0.35, 0.5, 0.45);
+			/*glUniform3f(prog->getUniform("MatDif"), 0.7804, 0.5686, 0.11373);
+			glUniform3f(prog->getUniform("MatSpec"), 0.9922, 0.941176, 0.80784);
+			glUniform1f(prog->getUniform("MatShine"), 27.9);*/
+			break;
 		}
+	}
+
+	//void drawHearingAid(shared_ptr<MatrixStack> Model)
+	//{
+	//	Model->pushMatrix();
+	//	Model->translate(vec3(-0.4, -1, 0));
+	//	Model->rotate(deg90, vec3(0, 0, 1));
+	//	Model->rotate(deg45, vec3(0, 1, 0));
+	//	Model->scale(7);
+	//	SetMaterial(1);
+	//	glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+	//	// draw each shape in hearing aid
+	//	for (int i = 0; i < hearingAid.size(); i++) {
+	//		hearingAid[i]->draw(prog);
+	//	}
+	//	Model->popMatrix();
+	//}
+	void drawHearingAid(shared_ptr<MatrixStack> Model)
+	{
+
+		//Note: I only made them different materials for easier visualization in the beginning
+
+		Model->pushMatrix();
+		//global rotate (the whole scene)
+		Model->rotate(gRot, vec3(0, 1, 0));
+		int basePosx = 0;
+		int basePosy = 0.5;
+		int basePosz = -9 + gTrans;
+		int baseScalex = 0;
+		int baseScaley = 0;
+		int baseScalez = 0;
+		// draw base
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx, basePosy, basePosz));
+		Model->scale(vec3(baseScalex + 1, baseScaley + 1, baseScalez + 1));
+		SetMaterial(1);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		base->draw(prog);
+		Model->popMatrix();
+
+		// draw basetoStem
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx + .45, basePosy + .90, basePosz));
+		Model->scale(vec3(baseScalex + 0.44, baseScaley + 0.44, baseScalez + 0.44));
+		SetMaterial(0);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		baseToStem->draw(prog);
+		Model->popMatrix();
+
+		//stem and speaker dome
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx + 1, basePosy + .14, basePosz));
+		Model->scale(vec3(baseScalex + 0.66, baseScaley + 0.7, baseScalez + 0.66));
+		SetMaterial(2);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		stem->draw(prog);
+		Model->popMatrix();
+
+		//Speaker
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx + 1.12, basePosy - .23, basePosz));
+		Model->scale(vec3(baseScalex + 0.26, baseScaley + 0.3, baseScalez + 0.3));
+		SetMaterial(2);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		speaker->draw(prog);
+		Model->popMatrix();
+
+		//dial
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx - .275, basePosy + .5, basePosz));
+		Model->scale(vec3(baseScalex + 0.2, baseScaley + 0.2, baseScalez + 0.2));
+		SetMaterial(2);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		dial->draw(prog);
+		Model->popMatrix();
+
+		//Middle button
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx - .4, basePosy + .1, basePosz));
+		Model->scale(vec3(baseScalex + 0.07, baseScaley + 0.07, baseScalez + 0.07));
+		SetMaterial(2);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		midButton->draw(prog);
+		Model->popMatrix();
+
+		//bottom Button
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx - .45, basePosy - .4, basePosz));
+		Model->scale(vec3(baseScalex + 0.07, baseScaley + 0.07, baseScalez + 0.07));
+		SetMaterial(2);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		botButton->draw(prog);
+		Model->popMatrix();
+
+		//Ear
+		Model->pushMatrix();
+		Model->translate(vec3(basePosx + .6, basePosy - .5, basePosz - .2)); //.4,0,-.3
+		Model->scale(vec3(1.5, 1.5, 1.5));
+		Model->rotate(110, vec3(0, 1, 0));
+		Model->rotate(135, vec3(1, 0, 0));
+		Model->rotate(135, vec3(1, 0, 0));
+		SetMaterial(3);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		ear->draw(prog);
+		Model->popMatrix();
+
+
+	}
 
 	void render()
 	{
@@ -349,7 +355,7 @@ public:
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		//Use the matrix stack for Lab 6
-		float aspect = width/(float)height;
+		float aspect = width / (float)height;
 
 		// Create the matrix stacks - please leave these alone for now
 		auto Projection = make_shared<MatrixStack>();
@@ -371,7 +377,7 @@ public:
 		prog->bind();
 		glUniformMatrix4fv(prog->getUniform("P"), 1, GL_FALSE, value_ptr(Projection->topMatrix()));
 		glUniformMatrix4fv(prog->getUniform("V"), 1, GL_FALSE, value_ptr(View->topMatrix()));
-		glUniform3f(prog->getUniform("lightP"), lightTrans+2, 3, 5);
+		glUniform3f(prog->getUniform("lightP"), lightTrans + 2, 3, 5);
 
 		// draw the spheres
 		Model->pushMatrix();
@@ -380,7 +386,7 @@ public:
 		Model->rotate(gRot, vec3(0, 1, 0));
 
 		drawHearingAid(Model);
-		
+
 		prog->unbind();
 
 		// Pop matrix stacks.
@@ -390,7 +396,7 @@ public:
 	}
 };
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
 	// Where the resources are loaded from
 	std::string resourceDir = "../resources";
@@ -401,12 +407,12 @@ int main(int argc, char *argv[])
 		resourceDir = argv[1];
 	}
 
-	Application *application = new Application();
+	Application* application = new Application();
 
 	// Your main will always include a similar set up to establish your window
 	// and GL context, etc.
 
-	WindowManager *windowManager = new WindowManager();
+	WindowManager* windowManager = new WindowManager();
 	windowManager->init(640, 480);
 	windowManager->setEventCallbacks(application);
 	application->windowManager = windowManager;
@@ -418,7 +424,7 @@ int main(int argc, char *argv[])
 	application->initGeom(objectDir);
 
 	// Loop until the user closes the window.
-	while (! glfwWindowShouldClose(windowManager->getHandle()))
+	while (!glfwWindowShouldClose(windowManager->getHandle()))
 	{
 		// Render scene.
 		application->render();
