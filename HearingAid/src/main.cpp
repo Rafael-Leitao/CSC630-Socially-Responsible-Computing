@@ -53,8 +53,13 @@ public:
 	float gTrans = 0;
 	float rotAmt = 0;
 	float rotInc = 0.01;
-	float gRotObj = 0;
+	float transInc = 0.01;
 	float gRotObjX = 0;
+	float gRotObjY = 0;
+	float gRotObjZ = 0;
+	float gTransObjY = 0;
+	float gTransObjX = 0;
+	float gTransObjZ = 0;
 	float deg45 = 0.785398;
 	float deg90 = 1.5708;
 	float deg135 = 2.35619;
@@ -99,31 +104,59 @@ public:
 		}
 		if (key == GLFW_KEY_RIGHT && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 			if (translateBool == false) {
-				gRotObj += rotInc;
+				gRotObjY += rotInc;
 			}
-			
+			else if (translateBool == true) {
+				gTransObjX += transInc;
+			}
+
 		}
 		if (key == GLFW_KEY_LEFT && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 			if (translateBool == false) {
-				gRotObj -= rotInc;
+				gRotObjY -= rotInc;
+			}
+			else if (translateBool == true) {
+				gTransObjX -= transInc;
 			}
 		}
 		if (key == GLFW_KEY_UP && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 			if (translateBool == false) {
 				gRotObjX += rotInc;
 			}
+			else if (translateBool == true) {
+				gTransObjY += transInc;
+			}
 		}
 		if (key == GLFW_KEY_DOWN && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 			if (translateBool == false) {
 				gRotObjX -= rotInc;
+			}
+			else if (translateBool == true) {
+				gTransObjY -= transInc;
 			}
 		}
 		if (key == GLFW_KEY_T && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 			if (translateBool == false) {
 				translateBool = true;
 			}
-			else if(translateBool == true) {
+			else if (translateBool == true) {
 				translateBool = false;
+			}
+		}
+		if (key == GLFW_KEY_M && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			if (translateBool == false) {
+				gRotObjZ += rotInc;
+			}
+			else if (translateBool == true) {
+				gTransObjZ += transInc;
+			}
+		}
+		if (key == GLFW_KEY_N && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			if (translateBool == false) {
+				gRotObjZ -= rotInc;
+			}
+			else if (translateBool == true) {
+				gTransObjZ -= transInc;
 			}
 		}
 	}
@@ -299,9 +332,12 @@ public:
 		int basePosz = -9 + gTrans;
 		// draw base
 		Model->pushMatrix();//base push
-		Model->translate(vec3(basePosx, basePosy, basePosz));
-		Model->rotate(gRotObj, vec3(0, 1, 0)); //rotate on y axis
+		Model->translate(vec3(basePosx + gTransObjX, basePosy + gTransObjY, basePosz + gTransObjZ));
+
 		Model->rotate(gRotObjX, vec3(1, 0, 0)); //rotate on x axis
+		Model->rotate(gRotObjY, vec3(0, 1, 0)); //rotate on y axis
+		Model->rotate(gRotObjZ, vec3(0, 0, 1));
+
 		SetMaterial(1);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		base->draw(prog);
