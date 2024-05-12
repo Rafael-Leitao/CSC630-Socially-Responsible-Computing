@@ -1,19 +1,21 @@
 ﻿  main.cpp
 C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(55,17): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(57,16): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(58,16): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(59,17): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(214,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(214,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(214,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(220,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(220,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(220,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(226,60): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(226,52): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(226,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(232,55): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(232,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(264,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(265,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(59,16): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(60,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(248,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(248,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(248,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(254,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(254,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(254,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(260,60): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(260,52): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(260,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(266,55): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(266,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(298,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(299,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(413,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(414,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   HearingAid.vcxproj -> C:\Users\luist\Source\Repos\CSC630-Socially-Responsible-Computing\HearingAid\x64\Debug\HearingAid.exe

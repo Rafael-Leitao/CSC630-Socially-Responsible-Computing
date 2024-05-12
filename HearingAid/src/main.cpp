@@ -53,7 +53,8 @@ public:
 	float gTrans = 0;
 	float rotAmt = 0;
 	float rotInc = 0.01;
-
+	float gRotObj = 0;
+	float gRotObjX = 0;
 	float deg45 = 0.785398;
 	float deg90 = 1.5708;
 	float deg135 = 2.35619;
@@ -61,6 +62,10 @@ public:
 	Camera myCamera;
 	bool firstMouse = true;
 	bool isRightMouseButtonPressed = false;
+	bool upPressed = false;
+	bool downPressed = false;
+	bool translateBool = false;
+	//bool right
 
 	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
@@ -91,6 +96,35 @@ public:
 		}
 		if (key == GLFW_KEY_S && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 			myCamera.moveBack();
+		}
+		if (key == GLFW_KEY_RIGHT && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			if (translateBool == false) {
+				gRotObj += rotInc;
+			}
+			
+		}
+		if (key == GLFW_KEY_LEFT && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			if (translateBool == false) {
+				gRotObj -= rotInc;
+			}
+		}
+		if (key == GLFW_KEY_UP && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			if (translateBool == false) {
+				gRotObjX += rotInc;
+			}
+		}
+		if (key == GLFW_KEY_DOWN && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			if (translateBool == false) {
+				gRotObjX -= rotInc;
+			}
+		}
+		if (key == GLFW_KEY_T && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
+			if (translateBool == false) {
+				translateBool = true;
+			}
+			else if(translateBool == true) {
+				translateBool = false;
+			}
 		}
 	}
 
@@ -257,91 +291,82 @@ public:
 
 		//Note: I only made them different materials for easier visualization in the beginning
 
-		Model->pushMatrix();
+		//Model->pushMatrix();
 		//global rotate (the whole scene)
-		Model->rotate(gRot, vec3(0, 1, 0));
+		//Model->rotate(gRot, vec3(0, 1, 0));
 		int basePosx = 0;
 		int basePosy = 0.5;
 		int basePosz = -9 + gTrans;
-		int baseScalex = 0;
-		int baseScaley = 0;
-		int baseScalez = 0;
 		// draw base
-		Model->pushMatrix();
+		Model->pushMatrix();//base push
 		Model->translate(vec3(basePosx, basePosy, basePosz));
-		Model->scale(vec3(baseScalex + 1, baseScaley + 1, baseScalez + 1));
+		Model->rotate(gRotObj, vec3(0, 1, 0)); //rotate on y axis
+		Model->rotate(gRotObjX, vec3(1, 0, 0)); //rotate on x axis
 		SetMaterial(1);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		base->draw(prog);
-		Model->popMatrix();
 
-		// draw basetoStem
+
+		//draw basetoStem
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx + .45, basePosy + .90, basePosz));
-		Model->scale(vec3(baseScalex + 0.44, baseScaley + 0.44, baseScalez + 0.44));
+		Model->translate(vec3(.45, basePosy + .90, 0));
+		//Model->rotate(gRotObj, vec3(0, 1, 0)); //rotate on y axis
+		Model->scale(vec3(0.44, 0.44, 0.44));
 		SetMaterial(0);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		baseToStem->draw(prog);
 		Model->popMatrix();
+		//need to do drawprog
 
-		//stem and speaker dome
+	//stem and speaker dome
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx + 1, basePosy + .14, basePosz));
-		Model->scale(vec3(baseScalex + 0.66, baseScaley + 0.7, baseScalez + 0.66));
+		Model->translate(vec3(basePosx + 1, basePosy + .14, 0));
+		//Model->rotate(gRotObj, vec3(0, 1, 0)); //rotate on y axis
+		Model->scale(vec3(0.66, 0.7, 0.66));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		stem->draw(prog);
-		Model->popMatrix();
+		//Model->popMatrix(); 
 
 		//Speaker
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx + 1.12, basePosy - .23, basePosz));
-		Model->scale(vec3(baseScalex + 0.26, baseScaley + 0.3, baseScalez + 0.3));
+		Model->translate(vec3(0.18, -0.65, 0));
+		Model->scale(vec3(0.4, 0.4, 0.4));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		speaker->draw(prog);
-		Model->popMatrix();
+		Model->popMatrix();//speaker pop
+		Model->popMatrix();//stem pop
 
 		//dial
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx - .275, basePosy + .5, basePosz));
-		Model->scale(vec3(baseScalex + 0.2, baseScaley + 0.2, baseScalez + 0.2));
+		Model->translate(vec3(basePosx - .275, basePosy + .5, 0));
+		Model->scale(vec3(0.2, 0.2, 0.2));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		dial->draw(prog);
-		Model->popMatrix();
+		Model->popMatrix();//dial pop
 
 		//Middle button
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx - .4, basePosy + .1, basePosz));
-		Model->scale(vec3(baseScalex + 0.07, baseScaley + 0.07, baseScalez + 0.07));
+		Model->translate(vec3(basePosx - .4, basePosy + .1, 0));
+		Model->scale(vec3(0.07, 0.07, 0.07));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		midButton->draw(prog);
-		Model->popMatrix();
+		Model->popMatrix();//midButton pop
 
 		//bottom Button
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx - .45, basePosy - .4, basePosz));
-		Model->scale(vec3(baseScalex + 0.07, baseScaley + 0.07, baseScalez + 0.07));
+		Model->translate(vec3(basePosx - .45, basePosy - .4, 0));
+		Model->scale(vec3(0.07, 0.07, 0.07));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
 		botButton->draw(prog);
-		Model->popMatrix();
-
-		//Ear
-		Model->pushMatrix();
-		Model->translate(vec3(basePosx + .6, basePosy - .5, basePosz - .2)); //.4,0,-.3
-		Model->scale(vec3(1.5, 1.5, 1.5));
-		Model->rotate(110, vec3(0, 1, 0));
-		Model->rotate(135, vec3(1, 0, 0));
-		Model->rotate(135, vec3(1, 0, 0));
-		SetMaterial(3);
-		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
-		ear->draw(prog);
-		Model->popMatrix();
+		Model->popMatrix();//button pop
 
 
+		Model->popMatrix();//base pop
 	}
 
 	void render()
@@ -384,6 +409,18 @@ public:
 
 		//global rotate (the whole scene )
 		Model->rotate(gRot, vec3(0, 1, 0));
+		int basePosx = 0;
+		int basePosy = 0.5;
+		int basePosz = -9 + gTrans;
+		//Ear
+		Model->pushMatrix();
+		Model->translate(vec3(0.4, 0.5, gTrans - 9.3));
+		Model->scale(vec3(1, 1, 1));
+		Model->rotate(90, vec3(0, 1, 0));
+		SetMaterial(3);
+		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
+		ear->draw(prog);
+		Model->popMatrix();
 
 		drawHearingAid(Model);
 
