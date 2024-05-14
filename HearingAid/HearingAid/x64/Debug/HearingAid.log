@@ -1,52 +1,22 @@
-﻿  Camera.cpp
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\Camera.cpp(49,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\Camera.cpp(50,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\Camera.cpp(53,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\Camera.cpp(54,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\Camera.cpp(55,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\Camera.cpp(56,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  GLSL.cpp
-  main.cpp
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(55,17): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(58,16): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(59,16): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(60,17): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(248,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(248,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(248,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(254,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(254,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(254,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(260,60): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(260,52): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(260,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(266,55): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(266,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(298,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(299,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(413,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(414,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  MatrixStack.cpp
-  Program.cpp
-  Shape.cpp
-  tiny_obj_loader.cpp
-  WindowManager.cpp
-  Generating Code...
-  glad.c
-  LINK : C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\x64\Debug\HearingAid.exe not found or not built by the last incremental link; performing full link
-glfw3.lib(window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(input.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(input.obj)' or at ''; linking object as if no debug info
-glfw3.lib(context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_thread.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_thread.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_joystick.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_time.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_time.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(vulkan.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(vulkan.obj)' or at ''; linking object as if no debug info
-glfw3.lib(wgl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(wgl_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(egl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(egl_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(osmesa_context.obj)' or at ''; linking object as if no debug info
-  HearingAid.vcxproj -> C:\Users\thech\OneDrive\Desktop\CSC630FinalProject\CSC630-Socially-Responsible-Computing\HearingAid\x64\Debug\HearingAid.exe
+﻿  main.cpp
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(55,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(56,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(63,16): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(64,16): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(65,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(281,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(281,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(281,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(287,56): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(287,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(287,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(293,60): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(293,52): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(293,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(299,55): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(299,44): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(331,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(332,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(449,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\luist\source\repos\CSC630-Socially-Responsible-Computing\HearingAid\src\main.cpp(450,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  HearingAid.vcxproj -> C:\Users\luist\Source\Repos\CSC630-Socially-Responsible-Computing\HearingAid\x64\Debug\HearingAid.exe

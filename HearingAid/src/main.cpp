@@ -376,7 +376,7 @@ public:
 
 		//dial
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx - .275, basePosy + .5, 0));
+		Model->translate(vec3(basePosx - .275, basePosy + .3, 0));
 		Model->scale(vec3(0.2, 0.2, 0.2));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
@@ -385,7 +385,7 @@ public:
 
 		//Middle button
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx - .4, basePosy + .1, 0));
+		Model->translate(vec3(basePosx - .4, basePosy - .125, 0));
 		Model->scale(vec3(0.07, 0.07, 0.07));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
@@ -394,7 +394,7 @@ public:
 
 		//bottom Button
 		Model->pushMatrix();
-		Model->translate(vec3(basePosx - .45, basePosy - .4, 0));
+		Model->translate(vec3(basePosx - .325, basePosy - .65, 0));
 		Model->scale(vec3(0.07, 0.07, 0.07));
 		SetMaterial(2);
 		glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, value_ptr(Model->topMatrix()));
