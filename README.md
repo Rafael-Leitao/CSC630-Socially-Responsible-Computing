@@ -47,3 +47,13 @@ Our project utilizes computer graphics to design hearing aids for infants and yo
 
 ### Acknowledgements
 - Thank you to all contributors and supporters of this project.
+
+
+**Results**
+
+![image](https://github.com/user-attachments/assets/c469e999-24c5-4b2f-ab58-6aedc4e859e9)
+
+
+
+![image](https://github.com/user-attachments/assets/69ba1a37-12d1-4667-90e4-ee9de603f47e)
+
